@@ -1,2 +1,12 @@
-package jbnu.it.cms.domain.entity;public class GraduationCriteria {
+package jbnu.it.cms.domain.entity;
+
+import jakarta.persistence.Entity;
+import lombok.Builder;
+import lombok.Data;
+
+@Entity
+@Data
+@Builder
+public class GraduationCriteria {
+
 }

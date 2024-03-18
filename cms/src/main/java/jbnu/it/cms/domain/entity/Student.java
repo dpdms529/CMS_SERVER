@@ -3,7 +3,6 @@ package jbnu.it.cms.domain.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -11,25 +10,20 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @Builder
-@IdClass(TakesPK.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Takes {
+public class Student {
     @Id
-    private int takesYear;
-
-    @Id
-    private int takesSemester;
-
-    @Id
-    private int target_grade;
-
-    @Id
-    private String courseId;
-
-    @Id
-    private String studentId;
+    @Column(name = "student_id")
+    private String id;
 
     @Column(nullable = false)
-    private String gp;
+    private String name;
+
+    private BigDecimal total_credit;
+
+    private BigDecimal gpa;
+
+    @Column(nullable = false)
+    private String password;
 }
