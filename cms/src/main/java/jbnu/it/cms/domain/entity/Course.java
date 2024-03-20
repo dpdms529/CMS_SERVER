@@ -27,4 +27,8 @@ public class Course {
     @Builder.Default
     @OneToMany(mappedBy = "course")
     private List<Section> sections = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "course")
+    private List<PreCourse> preCourses = new ArrayList<>();
 }

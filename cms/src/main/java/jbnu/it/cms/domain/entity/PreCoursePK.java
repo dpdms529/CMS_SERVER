@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class PreSubjectPK implements Serializable {
+public class PreCoursePK implements Serializable {
     Course course;
     Course preCourse;
 }
