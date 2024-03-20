@@ -8,19 +8,18 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
-@Data
+@Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Student {
     @Id
-    @Column(name = "student_id")
     private String id;
 
     @Column(nullable = false)
     private String name;
 
-    private BigDecimal total_credit;
+    private BigDecimal totalCredit;
 
     private BigDecimal gpa;
 
