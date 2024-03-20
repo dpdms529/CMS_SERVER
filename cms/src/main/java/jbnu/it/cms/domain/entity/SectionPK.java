@@ -1,6 +1,6 @@
 package jbnu.it.cms.domain.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -9,5 +9,5 @@ public class SectionPK implements Serializable {
     private int year;
     private int semester;
     private int targetGrade;
-    private String courseId;
+    private Course course;
 }

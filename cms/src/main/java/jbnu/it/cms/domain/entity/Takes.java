@@ -16,10 +16,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Takes {
     @Id
-    private int takesYear;
+    private int year;
 
     @Id
-    private int takesSemester;
+    private int semester;
 
     @Id
     private int targetGrade;
