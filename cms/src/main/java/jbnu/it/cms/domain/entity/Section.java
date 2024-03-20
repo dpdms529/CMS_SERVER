@@ -14,9 +14,10 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Section {
     @Id
-    private int sectionYear;
+    @Column(name = "`YEAR`")
+    private int year;
     @Id
-    private int sectionSemester;
+    private int semester;
     @Id
     private int targetGrade;
     @Id

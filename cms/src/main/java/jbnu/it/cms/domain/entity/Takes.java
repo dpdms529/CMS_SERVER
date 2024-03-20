@@ -22,7 +22,7 @@ public class Takes {
     private int takesSemester;
 
     @Id
-    private int target_grade;
+    private int targetGrade;
 
     @Id
     private String courseId;

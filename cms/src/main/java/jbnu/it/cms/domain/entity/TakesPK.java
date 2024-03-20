@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class TakesPK implements Serializable {
     private int year;
     private int semester;
-    private int target_grade;
-    private String course_id;
-    private String student_id;
+    private int targetGrade;
+    private String courseId;
+    private String studentId;
 }

@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 @Data
 public class SectionPK implements Serializable {
-    private int sectionYear;
-    private int sectionSemester;
+    private int year;
+    private int semester;
     private int targetGrade;
     private String courseId;
 }
