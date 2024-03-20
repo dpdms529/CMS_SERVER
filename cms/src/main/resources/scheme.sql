@@ -1,5 +1,5 @@
 CREATE TABLE ABEEK(code varchar(5) primary key ,
-                   name varchar(5) not null )
+                   "name" varchar(5) not null )
     AS SELECT * FROM CSVREAD('classpath:/data/ABEEK.csv');
 
 CREATE TABLE ABEEK_COURSE(course_id varchar(10),
@@ -9,7 +9,7 @@ CREATE TABLE ABEEK_COURSE(course_id varchar(10),
     AS SELECT * FROM CSVREAD('classpath:/data/ABEEK_COURSE.csv');
 
 CREATE TABLE COURSE(id varchar(10) primary key ,
-                    name varchar(20) not null ,
+                    "name" varchar(20) not null ,
                     credit numeric(2,1) not null )
     AS SELECT * FROM CSVREAD('classpath:/data/COURSE.csv');
 
