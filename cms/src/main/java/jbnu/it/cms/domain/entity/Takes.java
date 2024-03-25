@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Takes {
     @Id
+    @Column(name = "`year`")
     private int year;
 
     @Id
