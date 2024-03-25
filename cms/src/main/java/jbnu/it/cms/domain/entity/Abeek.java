@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,23 +15,15 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Course {
+public class Abeek {
     @Id
-    private String id;
+    private String code;
+
     @Column(name = "`name`", nullable = false)
     private String name;
-    @Column(nullable = false)
-    private BigDecimal credit;
 
     @Builder.Default
-    @OneToMany(mappedBy = "course")
-    private List<Section> sections = new ArrayList<>();
-
-    @Builder.Default
-    @OneToMany(mappedBy = "course")
-    private List<PreCourse> preCourses = new ArrayList<>();
-
-    @Builder.Default
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "abeek")
+    @ToString.Exclude
     private List<AbeekCourse> abeekCourses = new ArrayList<>();
 }
