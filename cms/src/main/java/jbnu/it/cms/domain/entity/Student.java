@@ -32,5 +32,6 @@ public class Student {
 
     @Builder.Default
     @OneToMany(mappedBy = "student")
+    @ToString.Exclude
     List<Takes> takesList = new ArrayList<>();
 }

@@ -5,7 +5,7 @@ import lombok.*;
 
 @Entity
 @Getter
-@ToString(exclude = {"student", "section", "score"})
+@ToString
 @IdClass(TakesPK.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -14,17 +14,17 @@ public class Takes {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns(
             {
-                    @JoinColumn(name = "`year`"),
-                    @JoinColumn(name = "semester"),
-                    @JoinColumn(name = "target_grade"),
-                    @JoinColumn(name = "course_id")
+                    @JoinColumn(name = "`year`", referencedColumnName = "`year`"),
+                    @JoinColumn(name = "semester", referencedColumnName = "semester"),
+                    @JoinColumn(name = "targetGrade", referencedColumnName = "targetGrade"),
+                    @JoinColumn(name = "courseId", referencedColumnName = "courseId")
             }
     )
     private Section section;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id", referencedColumnName = "id")
+    @JoinColumn(name = "studentId", referencedColumnName = "id")
     private Student student;
 
     @ManyToOne(fetch = FetchType.LAZY)

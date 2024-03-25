@@ -25,5 +25,6 @@ public class Score {
 
     @Builder.Default
     @OneToMany(mappedBy = "score")
+    @ToString.Exclude
     List<Takes> takesList = new ArrayList<>();
 }

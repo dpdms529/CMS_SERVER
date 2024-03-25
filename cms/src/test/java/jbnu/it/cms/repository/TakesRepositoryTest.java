@@ -21,7 +21,7 @@ class TakesRepositoryTest {
         List<Takes> takesList = takesRepository.findAll();
 
         for(Takes take : takesList) {
-
+            System.out.println("take = " + take);
         }
     }
 

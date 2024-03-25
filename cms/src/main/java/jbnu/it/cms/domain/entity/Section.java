@@ -34,5 +34,6 @@ public class Section {
     private CourseClassification courseClassification;
     @Builder.Default
     @OneToMany(mappedBy = "section")
+    @ToString.Exclude
     List<Takes> takesList = new ArrayList<>();
 }
