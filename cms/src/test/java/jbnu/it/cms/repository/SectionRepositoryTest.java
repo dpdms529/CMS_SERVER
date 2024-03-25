@@ -1,5 +1,6 @@
 package jbnu.it.cms.repository;
 
+import jbnu.it.cms.domain.entity.Course;
 import jbnu.it.cms.domain.entity.Section;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,9 +23,10 @@ class SectionRepositoryTest {
     @Test
     public void findByCourseId() throws Exception {
         //given
-        List<Section> byCourseId = sectionRepository.findByCourse(courseRepository.findById("0000103282").get());
+        Course course = courseRepository.findById("0000103282").get();
 
         //when
+        List<Section> byCourseId = sectionRepository.findByCourse(course);
 
         //then
         for (Section section : byCourseId) {

@@ -9,7 +9,7 @@ import static jakarta.persistence.FetchType.*;
 @Entity
 @IdClass(SectionPK.class)
 @Getter
-@ToString(of = {"year", "semester", "targetGrade"})
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,6 +24,7 @@ public class Section {
     @Id
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "courseId", referencedColumnName = "id")
+    @ToString.Exclude
     private Course course;
     @Column(nullable = false)
     private String courseClassificationCode;

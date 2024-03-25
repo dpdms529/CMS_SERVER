@@ -5,7 +5,7 @@ import lombok.*;
 
 @Entity
 @Getter
-@ToString(of = {"preCourse", "startYear", "endYear"})
+@ToString
 @IdClass(PreCoursePK.class)
 @Builder
 @AllArgsConstructor
@@ -14,6 +14,7 @@ public class PreCourse {
     @Id
     @ManyToOne
     @JoinColumn(name = "courseId", referencedColumnName = "id")
+    @ToString.Exclude
     private Course course;
     @Id
     @ManyToOne

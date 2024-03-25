@@ -30,6 +30,7 @@ class CourseRepositoryTest {
         //when
 
         //then
+        Assertions.assertThat(courses.size()).isEqualTo(64);
     }
 
 }
