@@ -3,31 +3,31 @@ package jbnu.it.cms.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Getter
+@ToString(exclude = {"student", "section", "score"})
 @IdClass(TakesPK.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Takes {
     @Id
-    @Column(name = "`year`")
-    private int year;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns(
+            {
+                    @JoinColumn(name = "`year`"),
+                    @JoinColumn(name = "semester"),
+                    @JoinColumn(name = "target_grade"),
+                    @JoinColumn(name = "course_id")
+            }
+    )
+    private Section section;
 
     @Id
-    private int semester;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id", referencedColumnName = "id")
+    private Student student;
 
-    @Id
-    private int targetGrade;
-
-    @Id
-    private String courseId;
-
-    @Id
-    private String studentId;
-
-    @Column(nullable = false)
-    private String gp;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gp", nullable = false)
+    private Score score;
 }

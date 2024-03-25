@@ -1,18 +1,21 @@
 package jbnu.it.cms.domain.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@ToString
 @Builder
+@ToString
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class GraduationCriteriaItem {
+public class CourseClassification {
     @Id
     private String code;
 
@@ -20,6 +23,6 @@ public class GraduationCriteriaItem {
     private String name;
 
     @Builder.Default
-    @OneToMany(mappedBy = "graduationCriteriaItem")
-    private List<GraduationCriteria> graduationCriteria = new ArrayList<>();
+    @OneToMany(mappedBy = "courseClassification")
+    List<Section> sections = new ArrayList<>();
 }

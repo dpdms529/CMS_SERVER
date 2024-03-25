@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static jakarta.persistence.FetchType.*;
 
 @Entity
@@ -26,6 +29,10 @@ public class Section {
     @JoinColumn(name = "courseId", referencedColumnName = "id")
     @ToString.Exclude
     private Course course;
-    @Column(nullable = false)
-    private String courseClassificationCode;
+    @ManyToOne
+    @JoinColumn(name = "courseClassificationCode", referencedColumnName = "code", nullable = false)
+    private CourseClassification courseClassification;
+    @Builder.Default
+    @OneToMany(mappedBy = "section")
+    List<Takes> takesList = new ArrayList<>();
 }

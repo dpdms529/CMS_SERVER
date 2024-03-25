@@ -10,6 +10,8 @@ import java.util.List;
 @Entity
 @Getter
 @Builder
+@ToString(exclude = "graduationCriteriaItem")
+@IdClass(GraduationCriteriaPK.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class GraduationCriteria {
@@ -17,12 +19,10 @@ public class GraduationCriteria {
     private int admissionYear;
 
     @Id
-    private String graduationCriteriaItemCode;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "graduationCriteriaItemCode", referencedColumnName = "code")
+    private GraduationCriteriaItem graduationCriteriaItem;
 
     @Column(nullable = false)
     private BigDecimal credit;
-
-    @ManyToOne
-    @JoinColumn(name = "graduationCriteriaItemCode", referencedColumnName = "code")
-    private GraduationCriteriaItem graduationCriteriaItem;
 }
