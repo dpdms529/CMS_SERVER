@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jbnu.it.cms.domain.dto.request.CourseRequestDto;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -35,4 +36,12 @@ public class Course {
     @Builder.Default
     @OneToMany(mappedBy = "course")
     private List<AbeekCourse> abeekCourses = new ArrayList<>();
+
+    public static Course toEntity(CourseRequestDto courseRequestDto) {
+        return Course.builder()
+                .id(courseRequestDto.getId())
+                .name(courseRequestDto.getName())
+                .credit(courseRequestDto.getCredit())
+                .build();
+    }
 }

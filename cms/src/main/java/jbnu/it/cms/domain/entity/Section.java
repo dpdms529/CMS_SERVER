@@ -2,6 +2,7 @@ package jbnu.it.cms.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jbnu.it.cms.domain.dto.request.SectionRequestDto;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -36,4 +37,14 @@ public class Section {
     @OneToMany(mappedBy = "section")
     @ToString.Exclude
     List<Takes> takesList = new ArrayList<>();
+
+    public static Section toEntity(SectionRequestDto sectionRequestDto) {
+        return Section.builder()
+                .year(sectionRequestDto.getYear())
+                .semester(sectionRequestDto.getSemester())
+                .targetGrade(sectionRequestDto.getTargetGrade())
+                .course(Course.toEntity(sectionRequestDto.getCourse()))
+                .courseClassification(CourseClassification.toEntity(sectionRequestDto.getCourseClassification()))
+                .build();
+    }
 }

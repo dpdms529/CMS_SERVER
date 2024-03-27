@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jbnu.it.cms.domain.dto.request.CourseClassificationRequestDto;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -26,4 +27,11 @@ public class CourseClassification {
     @OneToMany(mappedBy = "courseClassification")
     @ToString.Exclude
     List<Section> sections = new ArrayList<>();
+
+    public static CourseClassification toEntity(CourseClassificationRequestDto courseClassificationRequestDto) {
+        return CourseClassification.builder()
+                .code(courseClassificationRequestDto.getCode())
+                .name(courseClassificationRequestDto.getName())
+                .build();
+    }
 }
